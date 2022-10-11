@@ -1,12 +1,19 @@
+import random
+
 class Card:
     def __init__(self, name, number, upright, reverse):
         self.name = name
         self.number = number
         self.upright = upright
         self.reverse = reverse
+        self.isReverse = False if random.randint(0, 1) == 0 else True
+        
 
     def __repr__(self) -> str:
-        return self.name + ":" + self.upright + "; " + self.reverse
+        if self.isReverse == False:
+            return self.name + ": " + self.upright
+        else:
+            return self.name + " (Reversed): " + self.reverse
 
 theFool = Card("The Fool", 0, "Innoncence, New Beginnings, Wonder, Foolishness.", "Being Naive, Taken Advantage Of, Recklessness")
 theMagician = Card("The Magician", 1, "Willpower, Creation, Mastery, Adaptation.", "Trickery, Cunning, Deception, Craftiness")
